@@ -1,0 +1,95 @@
+@import '../../shared/styles/variables.scss';
+
+.movie-details {
+    padding: 2.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        padding: 2.5rem;
+        background-size: cover;
+        background-attachment: fixed;
+        border-radius: .6rem;
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: .6rem;
+            background-color: rgba(Black, .6);
+        }
+    }
+
+    &__content {
+        display: flex;
+        margin-bottom: 2.5rem;
+    }
+
+    &__image-wrapper{
+        position: relative;
+        z-index: 1;
+        width: 30%;
+        flex-shrink: 0;
+        margin-right: 2.5rem;
+    }
+
+    &__info {
+        position: relative;
+        z-index: 1;
+        width: 70%;
+        color: $light-clr;
+        text-align: center;
+    }
+
+    &__title {
+        margin-bottom: 1.5rem;
+    }
+    
+    &__subtitle {
+        margin-bottom: 2.5rem;
+        display: inline-block;
+    }
+
+    &__text {
+        text-align: left;
+        margin-bottom: 2.5rem;
+    }
+
+    &__bottom {
+        display: flex;
+        position: relative;
+        z-index: 1;
+    }
+
+    &__preview {
+        margin-right: 2.5rem;
+        transition:
+            outline-color 200ms ease, 
+            box-shadow 200ms ease;
+
+        &:hover {
+            box-shadow:0 .3rem 2.5rem lighten($primary-clr, 5%);
+        }
+
+        &:focus {
+            outline: .2rem solid $secondary-clr;
+            outline-offset: .3rem;
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    &__preview-image {
+        border-radius: .6rem;
+    }
+}

@@ -1,0 +1,37 @@
+@import '../../styles/variables.scss';
+
+.button {
+    cursor: pointer;
+    border: none;
+    
+    &--primary {
+        background-image: linear-gradient(to right, $secondary-clr, $primary-clr);
+        color: $light-clr;
+        padding: 1rem 2.5rem;
+        border-radius: .3rem;
+        box-shadow:0 .4rem .8rem rgba(black, .15);
+        transition: 
+            box-shadow 200ms ease,
+            filter 200ms ease;
+
+        &:hover {
+            filter: brightness(1.05);
+            box-shadow:0 .3rem 1rem lighten($secondary-clr, 5%);
+        }
+
+        &:focus {
+            box-shadow:0 .3rem 1rem lighten($secondary-clr, 5%);
+         }
+
+        &:disabled {
+            background-image: none;
+            background-color: $grey-clr;
+            filter:none;
+            cursor: not-allowed;
+
+            &:focus {
+                box-shadow:0 .4rem .8rem rgba(black, .15);
+            }
+        }
+    }
+}

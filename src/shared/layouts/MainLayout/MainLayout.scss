@@ -1,0 +1,19 @@
+@import '../../styles/variables.scss';
+
+.main-layout {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        background-image: linear-gradient(to right, $secondary-clr, $primary-clr);
+    }
+
+    &__footer {
+        padding: 1.5rem;
+        text-align: center;
+    }
+}

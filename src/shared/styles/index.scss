@@ -1,0 +1,39 @@
+@import './variables.scss';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    &::before,
+    &::after {
+        @extend *;
+    }
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+
+body {
+   font-size: $fz-default;
+   font-family: $ff-main; 
+}
+
+button,
+input {
+    font-family: $ff-main;
+    font-size: $fz-default;
+    outline:none
+}
+
+a {
+    color: inherit;
+    text-decoration: underline transparent;
+}
+
+img {
+    display: block;
+    width: 100%;
+}

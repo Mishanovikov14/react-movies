@@ -1,0 +1,16 @@
+@import '../../styles/variables.scss';
+
+.link {
+
+    &--primary {
+        color: $primary-clr;
+        transition: 
+            color 200ms ease
+            text-decoration 200ms ease;
+    
+        &:hover {
+            color: $secondary-clr;
+            text-decoration: underline $secondary-clr;
+        }
+    }
+}

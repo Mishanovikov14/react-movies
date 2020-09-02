@@ -1,0 +1,16 @@
+@import '../../styles/variables.scss';
+
+.navbar {
+    &__link {
+        margin-right: 2rem;
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        &--active {
+            color: $secondary-clr;
+            text-decoration: underline $secondary-clr;
+        }
+    }
+}

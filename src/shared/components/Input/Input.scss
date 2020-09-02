@@ -1,0 +1,14 @@
+@import '../../styles//variables.scss';
+ 
+.input {
+    display: block;
+    width: 100%;
+    padding: 1rem 1.3rem;
+    border: none;
+    border-bottom: .2rem solid $primary-clr;
+    transition: border-color 200ms ease;
+
+    &:focus {
+        border-color: $secondary-clr;
+    }
+}
