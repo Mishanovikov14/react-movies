@@ -58,13 +58,13 @@ const App = () => {
             onSearchSubmit={handleSearchSubmit}
         >
             <Switch>
-                <Route path="/" exact render={() => ( 
+                <Route path="/" exact>
                     <Movies items={movies} />
-                )}/>
+                </Route>
 
-                <Route path="/movie/:id" render={() => (
+                <Route path="/movie/:id">
                     <MovieDetails movies={movies} />
-                )}/>
+                </Route>
 
                 <Route path="/favorite" component={Favorite} />
                 <Route path="/auth" component={Auth} />

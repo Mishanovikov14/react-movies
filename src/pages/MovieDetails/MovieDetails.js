@@ -4,10 +4,10 @@ import PT from 'prop-types';
 import axios from 'axios';
 
 import { Button, ContentWrapper, Link } from '../../shared/components';
-
 import './MovieDetails.scss';
 
 const { REACT_APP_STORAGE_URL, REACT_APP_MOVIEDB_URL, REACT_APP_API_KEY } = process.env;
+
 
 const MovieDetails = ({ movies }) => {
     const { id } =  useParams();
@@ -25,7 +25,9 @@ const MovieDetails = ({ movies }) => {
 
             try {
                 const response = await Promise.all([
-                    foundMovie ? Promise.resoleve({ datd : foundMovie }) : axios.get(movieUrl),
+                    foundMovie 
+                        ? Promise.resolve({ data: foundMovie })
+                        : axios.get(movieUrl),
                     axios.get(similarMoviesUrl)
                 ]);
 
@@ -81,7 +83,8 @@ const MovieDetails = ({ movies }) => {
 
                         <Button
                             className="button--primary"
-                            onClick={() => console.log('Add to Favorite')}
+                            //TODO: create event
+                            onClick={() => {}}
                         >
                             Add to Favorite
                         </Button>

@@ -20,18 +20,24 @@ const Link = ({
     });
 
     if (LinkComponent) {
+        const props = {
+            to,
+            exact,
+            className: linkClassName,
+            disabled
+        };
+
+        if (activeClassName) {
+            props.activeClassName = activeClassName;
+        }
+
         return (
-            <LinkComponent
-                to={to}
-                exact={exact}
-                className={linkClassName}
-                disabled={disabled}
-                activeClassName={activeClassName}
-            >
+            <LinkComponent {...props}>
                 {children}
             </LinkComponent>
         );
     }
+
     return (
         <a
             className={linkClassName}

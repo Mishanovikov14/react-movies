@@ -2,7 +2,7 @@ import React from 'react';
 import PT from 'prop-types';
 import cn from 'classnames';
 
-import { Input, Label } from '..';
+import { Input, Label } from '../';
 import './InputWithLabel.scss';
 
 const InputWithLabel = ({
