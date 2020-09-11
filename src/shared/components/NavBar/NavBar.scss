@@ -3,6 +3,7 @@
 .navbar {
     &__link {
         margin-right: 2rem;
+        cursor: pointer;
 
         &:last-child {
             margin-right: 0;

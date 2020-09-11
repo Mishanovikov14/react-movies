@@ -10,6 +10,7 @@ const MainLayout = ({
     isSearching,
     onSearchChange,
     onSearchSubmit,
+    onKeyPress,
     children
 }) => {
     return (
@@ -19,6 +20,7 @@ const MainLayout = ({
                 isSearching={isSearching}
                 onSearchChange={onSearchChange}
                 onSearchSubmit={onSearchSubmit}
+                onKeyPress={onKeyPress}
             />
             
             <div className="main-layout__body">

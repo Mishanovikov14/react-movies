@@ -3,6 +3,12 @@
 .header {
     box-shadow: 0 .6rem 1.3rem rgba(black, .2);
 
+    &__title {
+        text-align: center;
+        font-size: 2rem;
+        flex-grow: 1;
+    }
+
     &__wrapper {
         display: flex;
         justify-content: space-between;

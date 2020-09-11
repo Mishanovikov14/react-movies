@@ -7,6 +7,7 @@
     border: none;
     border-bottom: .2rem solid $primary-clr;
     transition: border-color 200ms ease;
+    background-color: $bg-clr;
 
     &:focus {
         border-color: $secondary-clr;

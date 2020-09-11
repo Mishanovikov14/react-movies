@@ -2,7 +2,6 @@ import React from 'react';
 import PT from 'prop-types';
 import cn from 'classnames';
 
-
 import './Input.scss';
 
 const Input = ({
@@ -16,10 +15,11 @@ const Input = ({
     disabled,
     onChange,
     onBlur,
+    onKeyPress,
     onFocus
 }) => (
         <input
-            tupe={type}
+            type={type}
             id={id}
             className={cn('input', {
                 [className]: className
@@ -32,6 +32,7 @@ const Input = ({
             onChange={onChange}
             onBlur={onBlur}
             onFocus={onFocus}
+            onKeyPress={onKeyPress}
         />
 );
 

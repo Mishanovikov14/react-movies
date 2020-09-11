@@ -6,6 +6,7 @@
         top: calc(50% - 1.8rem / 2);
         left: 1.2rem;
         cursor: text;
+        pointer-events: none;
         transition: 
             top 500ms ease,
             left 500ms ease,

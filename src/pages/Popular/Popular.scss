@@ -1,11 +1,6 @@
 @import '../../shared/styles/variables.scss';
 
-.movies {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-grow: 1;
-    
+.popular {
    &__wrapper {
         padding: 2rem;
         display: grid;
@@ -65,10 +60,5 @@
             color: $secondary-clr;
             outline: .2rem solid $secondary-clr;
         }
-    }
-
-    &__title {
-        color: $light-clr;
-        text-align: center;
     }
 }

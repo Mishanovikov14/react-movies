@@ -28,7 +28,8 @@ Button.propTypes = {
     className: PT.string,
     disabled: PT.bool,
     children: PT.string.isRequired,
-    onClick: PT.func
+    onClick: PT.func,
+    onKeyPress: PT.func
 };
 
 export default Button;

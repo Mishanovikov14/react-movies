@@ -1,76 +1,68 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { Route, Switch, Redirect, useHistory } from 'react-router-dom';
-
+import React from 'react';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 import { MainLayout } from './shared/layouts';
-import { Movies, MovieDetails } from './pages';
-
-const { REACT_APP_API_KEY, REACT_APP_MOVIEDB_URL } = process.env;
+import { Movies, MovieDetails, Auth, Popular } from './pages';
+import { ErrorBoundary } from './shared/components';
+import { useAppState } from './shared/hooks';
 
 const Favorite = () => {
 return <h1>Favorite</h1>
 }
-const Auth = () => {
-return <h1>Auth</h1>
-}
 
 const App = () => {
-    const [search, setSearch] = useState('');
-    const [isSearching, setIsSearching] = useState(false);
-    const [movies, setMovies] = useState([]);
-    
-    const history = useHistory();
-
-    const handleSearchChange = e => {
-        setSearch(e.target.value)
-    };
-
-    const handleSearchSubmit = async () => {
-
-        setIsSearching(true);
-
-        const url = `${REACT_APP_MOVIEDB_URL}/search/movie?api_key=${REACT_APP_API_KEY}&language=en-US&query=${search}&page=1&include_adult=false`;
-
-        try {
-            const { data } = await axios.get(url);
-
-            setMovies(data.results);
-    
-            setIsSearching(false);
-
-            setSearch('');
-    
-            history.push('/');
-        } catch (e) {
-            console.log(e);
-        }
-
-    };
-
-
+    const {
+        search,
+        isSearching,
+        movies,
+        isAuthenticated,
+        handleSearchChange,
+        handleSearchSubmit,
+        handleKeyPress
+    } = useAppState();
 
     return (
-        <MainLayout
-            search={search}
-            isSearching={isSearching}
-            onSearchChange={handleSearchChange}
-            onSearchSubmit={handleSearchSubmit}
-        >
-            <Switch>
-                <Route path="/" exact>
-                    <Movies items={movies} />
-                </Route>
+        <ErrorBoundary>
+            <MainLayout
+                search={search}
+                isSearching={isSearching}
+                onSearchChange={handleSearchChange}
+                onSearchSubmit={handleSearchSubmit}
+                onKeyPress={handleKeyPress}
+            >
+                <Switch>
+                    {isAuthenticated ? (
+                        <>
+                            <Route path="/" exact>
+                                <Movies items={movies} />
+                            </Route>
 
-                <Route path="/movie/:id">
-                    <MovieDetails movies={movies} />
-                </Route>
+                            <Route path="/movie/:id">
+                                <MovieDetails movies={movies} />
+                            </Route>
 
-                <Route path="/favorite" component={Favorite} />
-                <Route path="/auth" component={Auth} />
-                <Redirect to="/"/>
-            </Switch>
-        </MainLayout>
+                            <Route path="/popular">
+                                <Popular />
+                            </Route>
+
+                            <Route path="/favorite">
+                                <Favorite />
+                            </Route>
+
+                            <Redirect to="/popular"/>
+                        </>
+                    ) : (
+                        <>
+                            <Route path="/auth">
+                                <Auth />
+                            </Route>
+
+                            <Redirect to="/auth"/>
+                        </>
+                    )}
+                </Switch>
+            </MainLayout>
+        </ErrorBoundary>
     );  
 };
 
