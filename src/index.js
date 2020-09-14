@@ -10,12 +10,17 @@ import rootReducer from './store/rootReducer';
 import * as serviceWorker from './serviceWorker';
 import './shared/styles/index.scss';
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const { NODE_ENV } = process.env;
+
+const composeEnhancers = NODE_ENV === 'development'
+	? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__: null
+	|| compose;
+	
 const middlewares = [thunk];
 
 const store = createStore(
-  rootReducer,
-  composeEnhancers(applyMiddleware(...middlewares))
+	rootReducer,
+	composeEnhancers(applyMiddleware(...middlewares))
 );
 
 ReactDOM.render(

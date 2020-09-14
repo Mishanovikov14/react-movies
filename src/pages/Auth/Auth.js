@@ -33,7 +33,7 @@ const Auth = () => {
     useEffect(() => {
         if (!isAuthenticated) return;
         
-        history.push('/');
+        history.push('/popular');
     }, [isAuthenticated, history])
 
     const handleChangeTab = nextActiveTab => {
@@ -41,37 +41,6 @@ const Auth = () => {
 
         dispatch(changeActiveTab(nextActiveTab));
     };
-
-    // useEffect(() => {
-    //     const getDataToDataBase = async () => {
-    //         const {
-    //             email,
-    //             password,
-    //             firstName,
-    //             lastName,
-    //             age,
-    //             confirmPassword
-    //         } = state.fields;
-
-    //         const response = await fetch('https://learn-react-movies.firebaseio.com/user.json', {
-    //             method: 'POST',
-    //             body: JSON.stringify({
-    //                 name: firstName.value,
-    //                 age: age.value,
-    //                 lastName: lastName.value,
-    //                 password: password.value,
-    //                 confirmPassword: confirmPassword.value,
-    //                 email: email.value
-    //             })
-    //         });
-
-    //         const result = await response.json();
-
-    //         console.log(result);
-    //     };
-
-    //     getDataToDataBase();
-    // }, []);
 
     const handleChangeFieldValue = e => {
         const { name, value } = e.target;
